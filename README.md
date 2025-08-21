@@ -12,25 +12,33 @@ GhostJumble is a PRNG that outperforms LCG as the fastest small-period, statisti
 
 #### GhostJumble16
 
-`Next` generates and returns a pseudorandom `ushort` integer.
+GhostJumble16 provides enhanced parallelism, speed and statistical test results as an ideal alternative to 16-bit LCG.
 
-GhostJumble16 has a period of 2¹⁶ by seeding `x` with a `ushort` integer.
+It has a period of 2¹⁶. Assigning `x` with the value from `x + ((50560 - (x * 3072)) * (n / 128))` behaves as a jump function where `n` is the count of steps forward. `n` must be a multiple of 128.
 
-Assigning `x` with the value from `x + ((50560 - (x * 3072)) * (n / 128))` behaves as a jump function where `n` is the count of steps forward. `n` must be a multiple of 128.
+##### C
 
-In conclusion, GhostJumble16 provides enhanced parallelism, speed and statistical test results as an ideal alternative to 16-bit LCG.
+`ghostjumble16` generates and returns a pseudorandom `uint16_t` integer, provided the implementation supports a 16-bit, unsigned integral type for `uint16_t`. Each `uint16_t` integer from each struct `ghostjumble16_s` instance must be assigned a seed.
+
+##### C#
+
+`Next` from `GhostJumble16` generates and returns a pseudorandom `ushort` integer. Each `ushort` integer from each `GhostJumble16` instance must be assigned a seed.
 
 ---
 
 #### GhostJumble8
 
-`Next` generates and returns a pseudorandom `byte` integer.
+GhostJumble8 provides enhanced parallelism, speed and statistical test results as an ideal alternative to 8-bit LCG.
 
-GhostJumble8 has a period of 2⁸ by seeding `x` with a `byte` integer.
+It has a period of 2⁸. Incrementing `x` by `n * 217` behaves as a jump function where `n` is the count of steps forward. Decrementing `x` by `n * 217` behaves as a jump function where `n` is the count of steps in reverse.
 
-Incrementing `x` by `n * 217` behaves as a jump function where `n` is the count of steps forward. Decrementing `x` by `n * 217` behaves as a jump function where `n` is the count of steps in reverse.
+##### C
 
-In conclusion, GhostJumble8 provides enhanced parallelism, speed and statistical test results as an ideal alternative to 8-bit LCG.
+`ghostjumble8` generates and returns a pseudorandom `uint8_t` integer, provided the implementation supports an 8-bit, unsigned integral type for `uint8_t`. Each `uint8_t` integer from each struct `ghostjumble8_s` instance must be assigned a seed.
+
+##### C#
+
+`Next` from `GhostJumble8` generates and returns a pseudorandom `byte` integer. Each `byte` integer from each `GhostJumble8` instance must be assigned a seed.
 
 ---
 
