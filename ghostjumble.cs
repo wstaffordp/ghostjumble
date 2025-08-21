@@ -17,5 +17,3 @@ public class GhostJumble8 {
     return x;
   }
 }
-
-
