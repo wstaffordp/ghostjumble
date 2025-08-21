@@ -14,7 +14,7 @@ GhostJumble is a PRNG that outperforms LCG as the fastest small-period, statisti
 
 GhostJumble16 provides enhanced parallelism, speed and statistical test results as an ideal alternative to 16-bit LCG.
 
-It has a period of 2¹⁶. Assigning `x` with the value from `x + ((50560 - (x * 3072)) * (n / 128))` behaves as a jump function where `n` is the count of steps forward. `n` must be a multiple of 128.
+It has a period of 2¹⁶. Incrementing `x` by `(50560 - (x * 3072)) * (n / 128)` behaves as a jump function where `n` is the count of steps forward. `n` must be a multiple of 128.
 
 ##### C
 
